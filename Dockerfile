@@ -2,10 +2,10 @@ FROM ubuntu:18.04
 
 ENV OWASP_CRS_VERSION=v3.2/dev
 
-LABEL maintainer="Daniel Pryor <http://github.com/pryorda/>"
+LABEL maintainer="atomspring <http://github.com/atomspring/>"
 
-COPY --from=pryorda/docker-waf-base:latest /usr/src/modsecurity/ /usr/src/modsecurity/
-COPY --from=pryorda/docker-waf-base:latest /usr/local/nginx/ /usr/local/nginx/
+COPY --from=atomspring/docker-waf-base:latest /usr/src/modsecurity/ /usr/src/modsecurity/
+COPY --from=atomspring/docker-waf-base:latest /usr/local/nginx/ /usr/local/nginx/
 
 RUN adduser --disabled-password --system --home /var/cache/nginx --shell /sbin/nologin --group nginx && \ 
         ln -s /usr/local/nginx/sbin/nginx /bin/nginx && \
